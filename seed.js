@@ -40,21 +40,24 @@ const seed = async () => {
     await Promise.all([
       Robot.create({
         name: 'R2-D2',
-        imageUrl: '/https://vignette.wikia.nocookie.net/starwars/images/e/eb/ArtooTFA2-Fathead.png/revision/latest/top-crop/width/720/height/900?cb=20161108040914/r2d2.png',
+        imageUrl:
+          'https://lh3.googleusercontent.com/proxy/6v_XFb8WZ2dfwWPIKnw4q_KJwK1xoRlsMsaBmIT5VTXiGoiUM8EPPTR32KKZmsK8QtS_uVQUjY8zMqa-ckiI8z2ta2wHbsQutcH-819e3IEd0Q',
         fuelType: 'electric',
         fuelLevel: 88.34,
       }),
       Robot.create({
         name: 'Wall-E',
-        imageUrl: 'https://vignette.wikia.nocookie.net/pixar/images/d/de/Wall%E2%80%A2e_clipped_rev_1.png/revision/latest?cb=20170807223723',
+        imageUrl:
+          'https://i.pinimg.com/originals/83/8b/41/838b41a126747204325d2352c2cfa219.png',
         fuelType: 'diesel',
         fuelLevel: 52.36,
       }),
       Robot.create({
-        name: 'Thundercleese',
-        imageUrl: 'https://i.ytimg.com/vi/PTg-I3qtDrU/maxresdefault.jpgtps://vignette.wikia.nocookie.net/pixar/images/d/de/Wall%E2%80%A2e_clipped_rev_1.png/revision/latest?cb=20170807223723',
+        name: 'Bender',
+        imageUrl:
+          'https://lh3.googleusercontent.com/proxy/ZJtYYfUjlqoz80Rx-CabqEVvXdHCxw7ciQetUDiMLXO7jul0pG9nmCJff852l79eUQ-c9D76CbxA9vTVSF3JzrFP8VMN1ogaWYsxa9XJGaWgyQ',
         fuelType: 'gas',
-        fuelLevel: 100.00,
+        fuelLevel: 100.0,
       }),
     ]);
   } catch (err) {

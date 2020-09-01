@@ -60,7 +60,7 @@ describe('Tier One: Projects', () => {
 
     // This test is interested in the unconnected AllProjects component. It is
     // exported as a named export in app/components/AllProjects.js
-    xit('renders the projects passed in as props', () => {
+    it('renders the projects passed in as props', () => {
       const wrapper = mount(
         <UnconnectedAllProjects
           projects={projects}
@@ -72,7 +72,7 @@ describe('Tier One: Projects', () => {
       expect(wrapper.text()).to.include('Open the pod bay doors');
     });
 
-    xit('renders DIFFERENT projects passed in as props', () => {
+    it('renders DIFFERENT projects passed in as props', () => {
       const differentProjects = [
         {
           id: 4,
@@ -100,7 +100,7 @@ describe('Tier One: Projects', () => {
     // In a later step, we'll create a thunk, and map that thunk to AllProjects
     // as getProjects. For right now, we just need to be sure the component
     // calls it after it mounts.
-    xit('calls this.props.getProjects after mount', async () => {
+    it('calls this.props.getProjects after mount', async () => {
       mount(
         <UnconnectedAllProjects
           projects={projects}
@@ -119,14 +119,14 @@ describe('Tier One: Projects', () => {
       fakeStore = mockStore(initialState);
     });
     describe('set/fetch projects', () => {
-      xit('setProjects action creator', () => {
+      it('setProjects action creator', () => {
         expect(setProjects(projects)).to.deep.equal({
           type: 'SET_PROJECTS',
           projects,
         });
       });
 
-      xit('fetchProjects thunk creator returns a thunk that GETs /api/projects', async () => {
+      it('fetchProjects thunk creator returns a thunk that GETs /api/projects', async () => {
         await fakeStore.dispatch(fetchProjects());
         const [getRequest] = mockAxios.history.get;
         expect(getRequest).to.not.equal(undefined);
@@ -149,7 +149,7 @@ describe('Tier One: Projects', () => {
         throw new Error('replace this error with your own test');
       });
 
-      xit('reduces on SET_PROJECTS action', () => {
+      it('reduces on SET_PROJECTS action', () => {
         const action = { type: 'SET_PROJECTS', projects };
 
         const prevState = testStore.getState();
