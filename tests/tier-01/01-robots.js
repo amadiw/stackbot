@@ -170,7 +170,7 @@ describe('Tier One: Robots', () => {
     });
   });
 
-  describe('Connect: react-redux', () => {
+  xdescribe('Connect: react-redux', () => {
     // This test is expecting your component to dispatch a thunk after it mounts
     // Remember that getRobots prop from an earlier test? Now's a good time
     // for a mapDispatch.

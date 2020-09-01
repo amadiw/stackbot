@@ -12,8 +12,9 @@ export const setRobots = (robots) => ({
 export const fetchRobots = () => async (dispatch) => {
   try {
     const { data: robots } = await axios.get('/api/robots');
-    console.log('robots from Axios--------> ', robots)
+
     dispatch(setRobots(robots));
+    console.log('hello from robot.js thunk creator')
   } catch (err) {
     console.error(err);
   }
@@ -31,6 +32,7 @@ const initialState = {
 export default function robotsReducer(state = initialState, action) {
   switch (action.type) {
     case SET_ROBOTS:
+      // return {...state, allRobots: action.robots}
       return action.robots;
     default:
       return state;

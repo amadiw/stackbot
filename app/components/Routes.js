@@ -38,6 +38,7 @@ const Routes = () => {
           </h1>
           <p>This seems like a nice place to get started with some Routes!</p>
           <Route exact path="/robots" component={AllRobots} />
+          <Route exact path="/projects" component={AllProjects} />
           {/* <AllRobots robots={robots} getRobots={getRobots}/>
           <AllProjects projects={projects} getprojects={getProjects} /> */}
         </main>
