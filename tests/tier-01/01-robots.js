@@ -336,7 +336,7 @@ describe('Tier One: Robots', () => {
     // command line.
     beforeEach(seed);
 
-    xit('populates the database with at least three robots', async () => {
+    it('populates the database with at least three robots', async () => {
       const seedRobots = await Robot.findAll();
       expect(seedRobots).to.have.lengthOf.at.least(3);
     });
