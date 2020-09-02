@@ -8,3 +8,15 @@ const appReducer = combineReducers({
 });
 
 export default appReducer;
+
+/* True structure of inital state in Store
+    {
+      projects: {
+        allProjects: []
+      },
+      robots: {
+        allRobots: []
+      }
+    }
+
+    state.projects.allProjects*/

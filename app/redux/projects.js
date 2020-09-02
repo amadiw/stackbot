@@ -14,6 +14,7 @@ export const fetchProjects = () =>
   async (dispatch) => {
   try {
     const { data: projects } = await axios.get('/api/projects')
+    // console.log('------------- ',projects)//returns array of test obs
     dispatch(setProjects(projects))
   } catch (err) {
     console.error(err)
@@ -32,7 +33,7 @@ const initialState = {
 export default function projectsReducer(state = initialState, action) {
   switch (action.type) {
     case SET_PROJECTS:
-      return action.projects
+      return {...state, allProjects: action.projects}
     default:
       return state
   }

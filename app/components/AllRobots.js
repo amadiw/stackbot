@@ -6,19 +6,17 @@ import { fetchRobots } from '../redux/robots';
 // (below) is not connected to Redux, while the default export (at the very
 // bottom) is connected to Redux. Our tests should cover _both_ cases.
 
+
 export class AllRobots extends React.Component {
   componentDidMount() {
     this.props.gotRobots();
-    // console.log('componentDidMount ran----------')
+    // console.log('AllRobots.js componentDidmount------->', this.props)
   }
 
   render() {
-    // console.log('Render: this.props from AllRobots.js ------> ', this.props.robots)
 
-    // return <div />;
-    // console.log('AllRobots.js------->> ',Object.keys(this.props))
-    const robots = this.props.allRobots;
-    // console.log(robots)
+    const {robots} = this.props
+    // console.log('AllRobots.js render(): this.props----', this.props)
     return (
       <div>
         <h1>Robots</h1>
@@ -37,10 +35,12 @@ export class AllRobots extends React.Component {
 }
 
 const mapState = (state) => {
+  // console.log('mapState------->',state)
   return {
-    robots: state.allRobots,
+    robots: state.robots.allRobots,
   };
 };
+
 
 const mapDispatch = (dispatch) => {
   return {

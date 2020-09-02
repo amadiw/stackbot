@@ -166,7 +166,7 @@ describe('Tier One: Projects', () => {
     // This test is expecting your component to dispatch a thunk after it mounts
     // Remember that getRobots prop from an earlier test? Now's a good time
     // for a mapDispatch.
-    xit('initializes projects from the server when the application loads the /projects route', async () => {
+    it('initializes projects from the server when the application loads the /projects route', async () => {
       const reduxStateBeforeMount = store.getState();
       expect(reduxStateBeforeMount.projects).to.deep.equal([]);
       mount(

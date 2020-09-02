@@ -41,7 +41,7 @@ const seed = async () => {
       Robot.create({
         name: 'R2-D2',
         imageUrl:
-          'https://lh3.googleusercontent.com/proxy/6v_XFb8WZ2dfwWPIKnw4q_KJwK1xoRlsMsaBmIT5VTXiGoiUM8EPPTR32KKZmsK8QtS_uVQUjY8zMqa-ckiI8z2ta2wHbsQutcH-819e3IEd0Q',
+          'https://icon-library.com/images/r2d2-icon/r2d2-icon-11.jpg',
         fuelType: 'electric',
         fuelLevel: 88.34,
       }),
@@ -55,7 +55,7 @@ const seed = async () => {
       Robot.create({
         name: 'Bender',
         imageUrl:
-          'https://lh3.googleusercontent.com/proxy/ZJtYYfUjlqoz80Rx-CabqEVvXdHCxw7ciQetUDiMLXO7jul0pG9nmCJff852l79eUQ-c9D76CbxA9vTVSF3JzrFP8VMN1ogaWYsxa9XJGaWgyQ',
+          'https://lh3.googleusercontent.com/proxy/G8RaAJr55o1Y3YzwCqs7dkcbdogyMR47O1Q48rfPJ_61HTUyC0d-7O6sv52MKL9QwOKfEdBod14nFu4pvNSbV2l-L7t22zF-Kw33wKuVf_gTWg',
         fuelType: 'gas',
         fuelLevel: 100.0,
       }),
