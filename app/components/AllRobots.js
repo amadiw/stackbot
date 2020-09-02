@@ -9,11 +9,13 @@ import { fetchRobots } from '../redux/robots';
 
 export class AllRobots extends React.Component {
   componentDidMount() {
-    this.props.gotRobots();
+    this.props.getRobots();
     // console.log('AllRobots.js componentDidmount------->', this.props)
   }
 
   render() {
+
+    console.log('AllRobots.js -> render -> this.props-----> ',this.props)
 
     const {robots} = this.props
     // console.log('AllRobots.js render(): this.props----', this.props)
@@ -44,7 +46,7 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    gotRobots: () => dispatch(fetchRobots()),
+    getRobots: () => dispatch(fetchRobots()),
   };
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import  fetchProjects  from '../redux/projects'
+import  { fetchProjects }  from '../redux/projects'
 
 // Notice that we're exporting the AllProjects component twice. The named export
 // (below) is not connected to Redux, while the default export (at the very
@@ -8,7 +8,7 @@ import  fetchProjects  from '../redux/projects'
 export class AllProjects extends React.Component {
 
  componentDidMount () {
-    this.props.gotProjects()
+    this.props.getProjects()
   }
 
   render() {
@@ -22,6 +22,7 @@ export class AllProjects extends React.Component {
         {
           projects.map(project => (
            <li key={project.id}> {project.title}
+           <div></div>
            {project.deadline}
            </li>
           ))}
@@ -34,14 +35,13 @@ export class AllProjects extends React.Component {
 const mapState = (state) => {
   // console.log('mapState----- ', state)
   return {
-
-    allProjects: state.projects.allProjects
+    projects: state.projects.allProjects
   };
 };
 
 const mapDispatch = (dispatch) => {
   return {
-    gotProjects: () => dispatch(fetchProjects())
+    getProjects: () => dispatch(fetchProjects())
   };
 };
 

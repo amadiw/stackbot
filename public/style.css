@@ -31,3 +31,8 @@ main {
   flex-direction: column;
   justify-content: center;
 }
+
+.linkColor {
+  color: white;
+  padding: 10px;
+}

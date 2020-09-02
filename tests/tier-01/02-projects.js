@@ -184,7 +184,7 @@ describe('Tier One: Projects', () => {
 
     // This test is expecting your component to render the projects from the
     // Redux store. Now's a good time for a mapState.
-    xit('<AllProjects /> renders projects from the Redux store', async () => {
+    it('<AllProjects /> renders projects from the Redux store', async () => {
       const wrapper = mount(
         <Provider store={store}>
           <MemoryRouter initialEntries={['/projects']}>

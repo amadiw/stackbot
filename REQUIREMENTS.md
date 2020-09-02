@@ -13,8 +13,8 @@ The requirements below are broken into separate **tiers**, which model the way w
 - [x ] Write a robots sub-reducer to manage robots in your Redux store
 - [x ] Write a projects sub-reducer to manage projects in your Redux store
 - [ x] Display the AllRobots component when the url matches `/robots`
-- [ ] Display the AllProjects component when the url matches `/projects`
-- [ ] Add links to the navbar that can be used to navigate to the all-projects view and the all-robots view
+- [x ] Display the AllProjects component when the url matches `/projects`
+- [ x] Add links to the navbar that can be used to navigate to the all-projects view and the all-robots view
 
 #### Backend
 
