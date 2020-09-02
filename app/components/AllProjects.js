@@ -13,14 +13,14 @@ export class AllProjects extends React.Component {
 
   render() {
     // console.log('this.props---- ', this.props)
-    const {projects} = this.props
+    const {allProjects} = this.props
 
     return (
       <div>
         <h1>Projects</h1>
         <ul>
         {
-          projects.map(project => (
+          allProjects.map(project => (
            <li key={project.id}> {project.title}
            <div></div>
            {project.deadline}
@@ -35,7 +35,7 @@ export class AllProjects extends React.Component {
 const mapState = (state) => {
   // console.log('mapState----- ', state)
   return {
-    projects: state.projects.allProjects
+    allProjects: state.projects
   };
 };
 

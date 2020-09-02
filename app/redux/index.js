@@ -11,12 +11,8 @@ export default appReducer;
 
 /* True structure of inital state in Store
     {
-      projects: {
-        allProjects: []
-      },
-      robots: {
-        allRobots: []
-      }
+      projects: [],
+      robots:[]
     }
 
     state.projects.allProjects*/

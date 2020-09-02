@@ -22,9 +22,7 @@ export const fetchRobots = () => async (dispatch) => {
 };
 
 //Sets up iniitalState to default data type
-const initialState = {
-  allRobots: [],
-};
+const initialState = []
 
 // Take a look at app/redux/index.js to see where this reducer is
 // added to the Redux store with combineReducers
@@ -33,8 +31,7 @@ const initialState = {
 export default function robotsReducer(state = initialState, action) {
   switch (action.type) {
     case SET_ROBOTS:
-      // return {...state, allRobots: action.robots}
-      return {...state, allRobots: action.robots};
+      return action.robots;
     default:
       return state;
   }

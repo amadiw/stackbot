@@ -15,15 +15,15 @@ export class AllRobots extends React.Component {
 
   render() {
 
-    console.log('AllRobots.js -> render -> this.props-----> ',this.props)
+    // console.log('AllRobots.js -> render -> this.props-----> ',this.props)
 
-    const {robots} = this.props
+    const {allRobots} = this.props
     // console.log('AllRobots.js render(): this.props----', this.props)
     return (
       <div>
         <h1>Robots</h1>
         <ul>
-          {robots.map((robot) => (
+          {allRobots.map((robot) => (
             <li key={robot.id}>
               {' '}
               {robot.name}
@@ -39,7 +39,7 @@ export class AllRobots extends React.Component {
 const mapState = (state) => {
   // console.log('mapState------->',state)
   return {
-    robots: state.robots.allRobots,
+    allRobots: state.robots
   };
 };
 

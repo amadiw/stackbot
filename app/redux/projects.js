@@ -22,9 +22,7 @@ export const fetchProjects = () =>
 };
 
 //Sets up initialState
-const initialState = {
-  allProjects: []
-}
+const initialState = []
 
 // Take a look at app/redux/index.js to see where this reducer is
 // added to the Redux store with combineReducers
@@ -33,7 +31,7 @@ const initialState = {
 export default function projectsReducer(state = initialState, action) {
   switch (action.type) {
     case SET_PROJECTS:
-      return {...state, allProjects: action.projects}
+      return action.projects
     default:
       return state
   }
