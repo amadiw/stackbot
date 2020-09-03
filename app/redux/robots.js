@@ -10,12 +10,11 @@ export const setRobots = (robots) => ({
 
 //Thunk Creator which makes an axios call to the database and returns all robots
 export const fetchRobots = () => async (dispatch) => {
-  // console.log('robots.js: fetchRobots thunk creator------->')
   try {
     const { data: robots } = await axios.get('/api/robots');
+    console.log('5. robots.js->fetchRobots()->robot from axios---> ', robots)
 
     dispatch(setRobots(robots));
-    // console.log('hello from robot.js thunk creator')
   } catch (err) {
     console.error(err);
   }

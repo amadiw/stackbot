@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import AllRobots from './AllRobots'
 import AllProjects  from './AllProjects';
+import SingleRobot from './SingleRobot'
 
 const Routes = () => {
   return (
@@ -16,9 +17,9 @@ const Routes = () => {
             Welcome to StackBot Project Management: your robot employees are
             awaiting assignments!
           </h1>
-          <p></p>
           <Route exact path="/robots" component={AllRobots} />
           <Route exact path="/projects" component={AllProjects} />
+          <Route path="/robots/:robotId" component={SingleRobot} />
         </main>
       </div>
     </Router>

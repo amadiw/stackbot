@@ -58,7 +58,7 @@ const seed = async () => {
       const bender = await Robot.create({
         name: 'Bender',
         imageUrl:
-          'https://lh3.googleusercontent.com/proxy/G8RaAJr55o1Y3YzwCqs7dkcbdogyMR47O1Q48rfPJ_61HTUyC0d-7O6sv52MKL9QwOKfEdBod14nFu4pvNSbV2l-L7t22zF-Kw33wKuVf_gTWg',
+          'https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png',
         fuelType: 'gas',
         fuelLevel: 100.0,
       })
