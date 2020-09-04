@@ -37,4 +37,19 @@ router.post('/', async (req, res, next) => {
   }
 })
 
+//DELETE /api/projects/:projectId
+router.delete('/:projectId', async (req, res, next) => {
+  try {
+    const { projectId } = req.params
+    await Project.destroy({
+      where: {
+        id: projectId
+      }
+    })
+    res.send(204)
+  } catch (err) {
+    next(err)
+  }
+})
+
 module.exports = router;
