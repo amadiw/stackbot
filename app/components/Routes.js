@@ -3,6 +3,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import AllRobots from './AllRobots'
 import AllProjects  from './AllProjects';
 import SingleRobot from './SingleRobot'
+import SingleProject from './SingleProject'
 
 const Routes = () => {
   return (
@@ -18,8 +19,9 @@ const Routes = () => {
             awaiting assignments!
           </h1>
           <Route exact path="/robots" component={AllRobots} />
+          <Route  path="/robots/:robotId" component={SingleRobot} />
           <Route exact path="/projects" component={AllProjects} />
-          <Route path="/robots/:robotId" component={SingleRobot} />
+          <Route  path="/projects/:projectId" component={SingleProject} />
         </main>
       </div>
     </Router>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { fetchSingleRobot } from '../redux/singleRobot';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 export class SingleRobot extends React.Component {
   componentDidMount() {
@@ -20,7 +21,6 @@ export class SingleRobot extends React.Component {
       fuelLevel,
       projects,
     } = this.props.singleRobot;
-    console.log('PROJECTS-----> ', projects);
 
     return (
       <div>
@@ -34,7 +34,7 @@ export class SingleRobot extends React.Component {
 
         <ul>
           {projects.map((project) => (
-            <li key={project.id}>{project.title}</li>
+            <Link to={`/projects/${project.id}`} key={project.id}>{project.title}<br></br></Link>
           ))}
         </ul>
       </div>

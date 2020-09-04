@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-
-
 //Action Constant
 const SET_SINGLE_ROBOT = 'SET_SINGLE_ROBOT'
 
@@ -37,7 +35,7 @@ const initialState = {
 export default function singleRobotReducer (state = initialState, action) {
   switch (action.type) {
     case SET_SINGLE_ROBOT:
-      return action.singleRobot
+      return {...state, ...action.singleRobot}
     default:
       return state
   }
