@@ -12,15 +12,15 @@ import { sendRobot } from "../redux/robots";
     event.preventDefault();
 
     const newRobot = event.target.name.value;
-    console.log('----------newRobot handleSubmit()', newRobot);
-    console.log('NewRobotForm.js_handleSubmit_this.props--> ', this.props)
+    // console.log('----------newRobot handleSubmit()', newRobot);
+    // console.log('NewRobotForm.js_handleSubmit_this.props--> ', this.props)
     this.props.gotRobot({
       name: newRobot,
     });
   }
 
   render() {
-    console.log("NewRobotForm props.... ", this.props);
+    // console.log("NewRobotForm props.... ", this.props);
     return (
       <div>
         <h1>Add new robot</h1>
@@ -36,14 +36,14 @@ import { sendRobot } from "../redux/robots";
 }
 
 const mapState = (state) => {
-  console.log('NewRobotForm.js_mapState ---->', state)
+  // console.log('NewRobotForm.js_mapState ---->', state)
   return {
     allRobots: state.robots
   }
 }
 
 const mapDispatch = (dispatch) => {
-  console.log('----NewRobotForm-mapDispatch', dispatch);
+  // console.log('----NewRobotForm-mapDispatch', dispatch);
   return {
     gotRobot: (robot) => dispatch(sendRobot(robot)),
   };

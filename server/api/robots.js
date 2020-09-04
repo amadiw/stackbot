@@ -29,15 +29,11 @@ router.get('/:robotId', async (req, res, next) => {
 })
 
 //POST /api/robots - adds a new robot
-
-
 router.post('/', async (req, res, next) => {
   // console.log(req.body.name)
   try {
-    console.log('req.body-----> ',req.body)
-    const newRobot = await Robot.create(
-      req.body
-    )
+    // console.log('req.body-----> ',req.body)
+    const newRobot = await Robot.create(req.body)
     res.status(201).json(newRobot)
     // res.send('hello post')
   } catch (err) {

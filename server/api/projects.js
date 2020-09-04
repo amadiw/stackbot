@@ -27,4 +27,14 @@ router.get('/:projectId', async (req, res, next) => {
   }
 })
 
+//POST /api/projects - adds a new project
+router.post('/', async (req, res, next) => {
+  try {
+    const newProject = await Project.create(req.body)
+    res.status(201).json(newProject)
+  } catch (err) {
+    next(err)
+  }
+})
+
 module.exports = router;

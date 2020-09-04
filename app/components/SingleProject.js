@@ -23,7 +23,7 @@ export class SingleProject extends React.Component {
         <ul>
           <li>Deadline: {deadline}</li>
           <li>Priority: {priority}</li>
-          <li>DescriptionL {description}</li>
+          <li>Description: {description}</li>
         </ul>
         <h2>Robots</h2>
         <ul>

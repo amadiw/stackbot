@@ -29,10 +29,10 @@ export const fetchRobots = () => async (dispatch) => {
 
 //Thunk Creator to makes axios post request
 export const sendRobot = (robot) => async (dispatch) => {
-  console.log('sendRobot thunk')
+  // console.log('sendRobot thunk')
   try {
     const { data: newRobot } = await axios.post('/api/robots', robot)
-    console.log('sendRobot thunk creator in robot.js ---->', newRobot)
+    // console.log('sendRobot thunk creator in robot.js ---->', newRobot)
     dispatch(getNewRobot(newRobot))
   } catch (err) {
     console.error(err)
