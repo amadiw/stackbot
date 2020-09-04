@@ -59,8 +59,8 @@ Congrats! You have completed your first vertical slice! Make sure to `commit -m 
 - [ x] Display the appropriate project's info when the url matches `/projects/:projectId`
 - [ x] Clicking on a project from the all-projects view should navigate to show that project in the single-project view
 
-- [ ] Clicking on the name of a robot in the single-project view should navigate to show that robot in the single-robot view
-- [ ] Clicking on the name of a project in the single-robot view should navigate to show that project in the single-project view
+- [ x] Clicking on the name of a robot in the single-project view should navigate to show that robot in the single-robot view
+- [ x] Clicking on the name of a project in the single-robot view should navigate to show that project in the single-project view
 
 #### Backend
 
