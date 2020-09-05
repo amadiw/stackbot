@@ -42,7 +42,7 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-//DELETE /api/robots/robot:id
+//DELETE /api/robots/:robotId
 router.delete('/:robotId', async (req, res, next) => {
   try {
     console.log('robotId robot.js-----> ', req.params.robotId);
@@ -58,5 +58,18 @@ router.delete('/:robotId', async (req, res, next) => {
     next(err);
   }
 });
+
+//PUT /api/robots/:robotId
+router.put('/:robotId', async (req, res, next) => {
+  try {
+    const { robotId } = req.params
+    // console.log(robotId)
+    const robot = await Robot.findByPk(robotId)
+    const updateRobot = await robot.update(req.body)
+    res.json(updateRobot)
+  } catch (err) {
+    next(err)
+  }
+})
 
 module.exports = router;
