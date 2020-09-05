@@ -49,7 +49,7 @@ export const removedRobot = (robotId) =>
   async (dispatch) => {
     try {
       await axios.delete(`/api/robots/${robotId}`)
-      console.log('removedRobot()----> ', robotId)
+      // console.log('removedRobot()----> ', robotId)
       dispatch(deleteRobot(robotId))
     } catch (err) {
       console.error(err)

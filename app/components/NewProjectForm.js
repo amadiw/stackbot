@@ -12,8 +12,8 @@ import { sendProject } from "../redux/projects";
     event.preventDefault();
 
     const newProject = event.target.title.value;
-    console.log('3. handSubmit: newProject--> ', newProject)
-    console.log('4. this.props-_-_-_-> ',this.props )
+    // console.log('3. handSubmit: newProject--> ', newProject)
+    // console.log('4. this.props-_-_-_-> ',this.props )
 
     this.props.gotProject({
       title: newProject,
@@ -21,7 +21,7 @@ import { sendProject } from "../redux/projects";
   }
 
   render() {
-    console.log("2. NewprojectForm props render().... ", this.props);
+    // console.log("2. NewprojectForm props render().... ", this.props);
     return (
       <div>
         <h1>Add new project</h1>
@@ -44,7 +44,7 @@ const mapState = (state) => {
 }
 
 const mapDispatch = (dispatch) => {
-  console.log('1. NewprojectForm-mapDispatch', dispatch);
+  // console.log('1. NewprojectForm-mapDispatch', dispatch);
   return {
     gotProject: (project) => dispatch(sendProject(project)),
   };

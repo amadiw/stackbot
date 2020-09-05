@@ -3,6 +3,7 @@ import axios from 'axios'
 //Action Constants
 const SET_PROJECTS = 'SET_PROJECTS'
 const GET_NEW_PROJECT = 'GET_NEW_PROJECT'
+const DELETE_PROJECT = 'DELETE_PROJECT'
 
 //Action Creators
 export const setProjects = (projects) => ({
@@ -15,7 +16,12 @@ export const getNewProject = (project) => ({
   project
 })
 
-//Thunk creator which uses an axios call to return all Projects
+export const deleteProject = (project) => ({
+  type: DELETE_PROJECT,
+  project
+})
+
+//Thunk Creators
 export const fetchProjects = () =>
   async (dispatch) => {
   try {
@@ -39,6 +45,17 @@ export const sendProject = (project) =>
     }
   }
 
+export const removedProject = (projectId) =>
+  async (dispatch) => {
+    try {
+      await axios.delete(`/api/projects/${projectId}`)
+      console.log('removeProject(): thunk_projectId ---> ',projectId)
+      dispatch(deleteProject(projectId))
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
 //Sets up initialState
 const initialState = []
 
@@ -52,6 +69,8 @@ export default function projectsReducer(state = initialState, action) {
       return action.projects
     case GET_NEW_PROJECT:
       return [...state, action.project]
+    case DELETE_PROJECT:
+      return state.filter(project => project.id !== action.project)
     default:
       return state
   }

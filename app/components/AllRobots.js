@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchRobots } from '../redux/robots';
+import { fetchRobots,  removedRobot} from '../redux/robots';
 import { Link } from 'react-router-dom';
 import NewRobotForm from './NewRobotForm';
 import DeleteRobot from './DeleteRobot'
+
 
 // Notice that we're exporting the AllRobots component twice. The named export
 // (below) is not connected to Redux, while the default export (at the very
@@ -28,10 +29,7 @@ export class AllRobots extends React.Component {
               {robot.name}
               <img src={robot.imageUrl} />
             </Link>
-            <DeleteRobot id={robot.id} />
-            {/* <button onClick={this.handleClick} type="submit">
-              X
-            </button> */}
+            <DeleteRobot id={robot.id} deleteRobot={this.props.deleteRobot} />
           </div>
         ))}
         <NewRobotForm />
@@ -51,6 +49,7 @@ const mapDispatch = (dispatch) => {
   console.log('2: mapDispatch------->', dispatch);
   return {
     getRobots: () => dispatch(fetchRobots()),
+    deleteRobot: (id) => dispatch(removedRobot(id))
 
   };
 };
