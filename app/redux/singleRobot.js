@@ -12,15 +12,16 @@ export const setSingleRobot = (singleRobot) => ({
 //Thunk Creator which makes an axios call to database and returns single robot & their projects
 
 
-export const fetchSingleRobot = (robotId) => async (dispatch) => {
-  try {
-    const {data} = await axios.get(`/api/robots/${robotId}`)
-    console.log('5. fetchSingleRobot thunk---> ', data)
-    dispatch(setSingleRobot(data))
-  } catch (err) {
-    console.error(err)
+export const fetchSingleRobot = (robotId) =>
+  async (dispatch) => {
+    try {
+      const {data: robot} = await axios.get(`/api/robots/${robotId}`)
+      console.log('5. fetchSingleRobot thunk---> ', robot)
+      dispatch(setSingleRobot(robot))
+    } catch (err) {
+      console.error(err)
+    }
   }
-}
 
 //Defining initial State
 const initialState = {

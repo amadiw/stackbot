@@ -6,10 +6,9 @@ import { Link } from 'react-router-dom'
 export class SingleRobot extends React.Component {
   componentDidMount() {
     const { robotId } = this.props.match.params;
-
     this.props.gotSingleRobot(robotId);
 
-    console.log('4: componentDidMount()', this.props);
+    // console.log('4: componentDidMount()', this.props);
   }
 
   render() {

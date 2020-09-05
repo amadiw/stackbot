@@ -1,56 +1,57 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchRobots } from '../redux/robots';
-import { Link } from 'react-router-dom'
-import  NewRobotForm  from './NewRobotForm';
-
+import { Link } from 'react-router-dom';
+import NewRobotForm from './NewRobotForm';
+import DeleteRobot from './DeleteRobot'
 
 // Notice that we're exporting the AllRobots component twice. The named export
 // (below) is not connected to Redux, while the default export (at the very
 // bottom) is connected to Redux. Our tests should cover _both_ cases.
 
-
 export class AllRobots extends React.Component {
   componentDidMount() {
     this.props.getRobots();
-    // console.log('4. componentDidmount()------->', this.props)
+    console.log('4. componentDidmount()------->', this.props);
   }
 
   render() {
+    console.log('3. render() -> this.props-----> ', this.props);
+    const { allRobots } = this.props;
 
-    // console.log('3. render() -> this.props-----> ',this.props)
-
-    const {allRobots} = this.props
     return (
-      <div>
+      <React.Fragment>
         <h1>Robots</h1>
-        <ul>
-          {allRobots.map((robot) => ( //map through allRobots and attach link/onclick to img tag that will render singleRobot
-            <Link to={`robots/${robot.id}`} key={robot.id}>
-              {' '}
+        {allRobots.map((robot) => (
+          <div key={robot.id}>
+            <Link to={`robots/${robot.id}`}>
               {robot.name}
               <img src={robot.imageUrl} />
             </Link>
-          ))}
-        </ul>
+            <DeleteRobot id={robot.id} />
+            {/* <button onClick={this.handleClick} type="submit">
+              X
+            </button> */}
+          </div>
+        ))}
         <NewRobotForm />
-      </div>
+      </React.Fragment>
     );
   }
 }
 
 const mapState = (state) => {
-  // console.log('1: mapState------->', state)
+  console.log('1: mapState------->', state);
   return {
-    allRobots: state.robots
+    allRobots: state.robots,
   };
 };
 
-
 const mapDispatch = (dispatch) => {
-  // console.log('2: mapDispatch------->', dispatch)
+  console.log('2: mapDispatch------->', dispatch);
   return {
     getRobots: () => dispatch(fetchRobots()),
+
   };
 };
 
