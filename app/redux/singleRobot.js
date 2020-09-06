@@ -11,10 +11,11 @@ export const setSingleRobot = (singleRobot) => ({
 
 });
 
-export const updateSingleRobot = (id, name) => ({
+export const updateSingleRobot = (id, name, fuelLevel) => ({
   type: UPDATE_SINGLE_ROBOT,
   id,
-  name
+  name,
+  fuelLevel
 });
 
 //Thunk Creators
@@ -28,10 +29,10 @@ export const fetchSingleRobot = (robotId) => async (dispatch) => {
   }
 };
 
-export const updatingSingleRobot = (robotId, name) => async (dispatch) => {
+export const updatingSingleRobot = (robotId, name, fuelLevel) => async (dispatch) => {
   try {
-    await axios.put(`/api/robots/${robotId}`, name);
-    dispatch(updateSingleRobot(robotId, name));
+    await axios.put(`/api/robots/${robotId}`, name, fuelLevel);
+    dispatch(updateSingleRobot(robotId, name, fuelLevel));
   } catch (err) {
     console.error(err);
   }

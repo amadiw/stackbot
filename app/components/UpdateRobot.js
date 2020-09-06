@@ -11,10 +11,11 @@ export class UpdateRobot extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    const updatedName = event.target.name.value
+    const name = event.target.name.value
+    const fuelLevel = event.target.fuelLevel.value
     const { id } = this.props.singleRobot
-    console.log('handleSubmit---> ', id, updatedName)
-    this.props.updatedRobot(id, {name: updatedName})
+    console.log('handleSubmit fuelLevel---> ', event.target.fuelLevel.value)
+    this.props.updatedRobot(id, {name, fuelLevel})
   }
 
   render() {
@@ -26,11 +27,9 @@ export class UpdateRobot extends React.Component {
         <label htmlFor="name">Name: </label>
         <input type="text" name="name" />
         <p />
-        <select>
-          <option value="electric">Electric</option>
-          <option value="diesel">Diesel</option>
-          <option value="gas">Gas</option>
-        </select>
+        <label htmlFor="fuelLevel">Fuel Level: </label>
+        <input type="text" name="fuelLevel" />
+        <p></p>
         <button type="submit">Submit</button>
       </form>
       </React.Fragment>
