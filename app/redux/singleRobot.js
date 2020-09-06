@@ -7,17 +7,20 @@ const UPDATE_SINGLE_ROBOT = 'UPDATE_SINGLE_ROBOT';
 //Action Creator
 export const setSingleRobot = (singleRobot) => ({
   type: SET_SINGLE_ROBOT,
-  singleRobot,
+  singleRobot
+
 });
 
-export const updateSingleRobot = (singleRobot) => ({
+export const updateSingleRobot = (id, name) => ({
   type: UPDATE_SINGLE_ROBOT,
-  singleRobot,
+  id,
+  name
 });
 
 //Thunk Creators
 export const fetchSingleRobot = (robotId) => async (dispatch) => {
   try {
+    console.log('fetchingSingleRobot() ---> ', robotId)
     const { data: robot } = await axios.get(`/api/robots/${robotId}`);
     dispatch(setSingleRobot(robot));
   } catch (err) {
@@ -25,11 +28,10 @@ export const fetchSingleRobot = (robotId) => async (dispatch) => {
   }
 };
 
-export const updatingSingleRobot = (robotId) => async (dispatch) => {
+export const updatingSingleRobot = (robotId, name) => async (dispatch) => {
   try {
-    const { data: robot } = await axios.put(`/api/robots${robotId}`);
-    console.log('singleRobot.js updatingSingleRobot()-->', robot);
-    dispatch(updateSingleRobot(robot));
+    await axios.put(`/api/robots/${robotId}`, name);
+    dispatch(updateSingleRobot(robotId, name));
   } catch (err) {
     console.error(err);
   }
@@ -50,7 +52,7 @@ export default function singleRobotReducer(state = initialState, action) {
     case SET_SINGLE_ROBOT:
       return { ...state, ...action.singleRobot };
     case UPDATE_SINGLE_ROBOT:
-      return { ...state, ...action.singleRobot };
+      return { ...state, ...action.name};
     default:
       return state;
   }

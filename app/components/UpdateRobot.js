@@ -5,18 +5,20 @@ import { updatingSingleRobot } from '../redux/singleRobot'
 export class UpdateRobot extends React.Component {
   constructor () {
     super()
+
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleSubmit(event) {
     event.preventDefault()
     const updatedName = event.target.name.value
-    this.props.updatedRobot({
-      name: updatedName
-    })
+    const { id } = this.props.singleRobot
+    console.log('handleSubmit---> ', id, updatedName)
+    this.props.updatedRobot(id, {name: updatedName})
   }
 
   render() {
+    console.log('render()', this.props)
     return (
       <React.Fragment>
       <h1>Update Robot</h1>
@@ -44,7 +46,7 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    updatedRobot: (robot) => dispatch(updatingSingleRobot(robot))
+    updatedRobot: (robotId, name) => dispatch(updatingSingleRobot(robotId, name))
   }
 }
 
