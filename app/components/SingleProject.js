@@ -17,32 +17,31 @@ export class SingleProject extends React.Component {
       priority,
       description,
       robots,
-      completed
+      completed,
     } = this.props.singleProject;
 
     return (
       <React.Fragment>
-      <div>
-        <h1>{title}</h1>
-        <ul>
-          <li>Deadline: {deadline}</li>
-          <li>Priority: {priority}</li>
-          <li>Description: {description}</li>
-          <li>Completed: {completed + ''}</li>
-        </ul>
-        <UpdateProject />
-        <h2>Robots</h2>
-        <ul>
-          {robots.map((robot) => (
-            <div key={robot.id}>
-            <Link to={`/robots/${robot.id}`} >
-              {robot.name}
-            </Link>
-              <br />
-            </div>
-          ))}
-        </ul>
-      </div>
+        <div>
+          <h1>{title}</h1>
+          <ul>
+            <li>Deadline: {deadline}</li>
+            <li>Priority: {priority}</li>
+            <li>Description: {description}</li>
+            <li>Completed: {completed + ''}</li>
+          </ul>
+          <UpdateProject />
+          <h2>Robots</h2>
+          <ul>
+            {robots.map((robot) => (
+              <div key={robot.id}>
+                <Link to={`/robots/${robot.id}`}>{robot.name}</Link>
+                <br />
+                <button type="submit">Remove Robot</button>
+              </div>
+            ))}
+          </ul>
+        </div>
       </React.Fragment>
     );
   }

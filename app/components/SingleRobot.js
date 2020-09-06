@@ -18,9 +18,8 @@ export class SingleRobot extends React.Component {
       fuelLevel,
       projects,
     } = this.props.singleRobot;
-
     return (
-      <div>
+      <React.Fragment>
         <h1>{name}</h1>
         <img src={imageUrl} />
         <ul>
@@ -29,16 +28,18 @@ export class SingleRobot extends React.Component {
         </ul>
         <UpdateRobot />
         <h2>Projects</h2>
-
         <ul>
           {projects.map((project) => (
-            <Link to={`/projects/${project.id}`} key={project.id}>
+            <div key={project.id}>
+            <Link to={`/projects/${project.id}`} >
               {project.title}
-              <br></br>
+              <br />
             </Link>
+            <button type="submit">Remove Project</button>
+            </div>
           ))}
         </ul>
-      </div>
+      </React.Fragment>
     );
   }
 }

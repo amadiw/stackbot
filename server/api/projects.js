@@ -56,7 +56,6 @@ router.delete('/:projectId', async (req, res, next) => {
 router.put('/:projectId', async (req, res, next) => {
   try {
     const { projectId } = req.params;
-    console.log('projectId----- ', projectId);
     const project = await Project.findByPk(projectId);
     const updateProject = await project.update(req.body);
     res.json(updateProject);

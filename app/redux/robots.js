@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-//Action Constant
+//Action Constants
 const SET_ROBOTS = 'SET_ROBOTS';
 const GET_NEW_ROBOT = 'GET_NEW_ROBOT';
 const DELETE_ROBOT = 'DELETE_ROBOT';
 
-//Action Creator
+//Action Creators
 export const setRobots = (robots) => ({
   type: SET_ROBOTS,
   robots,
@@ -49,7 +49,7 @@ export const removedRobot = (robotId) => async (dispatch) => {
   }
 };
 
-//Sets up iniitalState
+//Sets initialState
 const initialState = [];
 
 //Reducer

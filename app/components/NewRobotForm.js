@@ -10,9 +10,9 @@ export class NewRobotForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const newRobot = event.target.name.value;
+    const name = event.target.name.value;
     this.props.gotRobot({
-      name: newRobot,
+      name,
     });
   }
 

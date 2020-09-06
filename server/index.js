@@ -5,7 +5,6 @@ const volleyball = require('volleyball')
 const app = express()
 
 // logging middleware
-// Only use logging middleware when not running tests
 const debug = process.env.NODE_ENV === 'test'
 app.use(volleyball.custom({ debug }))
 

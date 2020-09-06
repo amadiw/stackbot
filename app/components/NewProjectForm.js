@@ -10,9 +10,9 @@ export class NewProjectForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const newProject = event.target.title.value;
+    const title = event.target.title.value;
     this.props.gotProject({
-      title: newProject,
+      title,
     });
   }
 

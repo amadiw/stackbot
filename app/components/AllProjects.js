@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom';
 import NewProjectForm from './NewProjectForm';
 import DeleteProject from './DeleteProject';
 
-// Notice that we're exporting the AllProjects component twice. The named export
-// (below) is not connected to Redux, while the default export (at the very
-// bottom) is connected to Redux. Our tests should cover _both_ cases.
 export class AllProjects extends React.Component {
   componentDidMount() {
     this.props.getProjects();
@@ -22,13 +19,14 @@ export class AllProjects extends React.Component {
           {allProjects.map((project) => (
             <div key={project.id}>
               <Link to={`projects/${project.id}`}>
-                <p>
-                  {project.title}
-                </p>
+                <p>{project.title}</p>
               </Link>
-                  Due: {project.deadline}
-                  <p />
-              <DeleteProject id={project.id} deleteProject={this.props.deleteProject} />
+              Due: {project.deadline}
+              <p />
+              <DeleteProject
+                id={project.id}
+                deleteProject={this.props.deleteProject}
+              />
             </div>
           ))}
         </ul>
@@ -47,7 +45,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     getProjects: () => dispatch(fetchProjects()),
-    deleteProject: (id) => dispatch(removedProject(id))
+    deleteProject: (id) => dispatch(removedProject(id)),
   };
 };
 

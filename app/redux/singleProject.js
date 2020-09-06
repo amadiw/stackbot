@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-//Action Constant
+//Action Constants
 const SET_SINGLE_PROJECT = 'SET_SINGLE_PROJECT';
 const UPDATE_SINGLE_PROJECT = 'UPDATE_SINGLE_PROJECT'
 const MARK_COMPLETED = 'MARK_COMPLETED'
 
-//Action Creator
+//Action Creators
 export const setSingleProject = (singleProject) => ({
   type: SET_SINGLE_PROJECT,
   singleProject,
@@ -23,7 +23,7 @@ export const markSingleProjectComplete = (id, completed) => ({
   id,
   completed
 })
-//Thunk Creator
+//Thunk Creators
 export const fetchSingleProject = (projectId) => async (dispatch) => {
   try {
     const { data } = await axios.get(`/api/projects/${projectId}`);
@@ -51,7 +51,7 @@ export const markingCompleted = (id, completed) => async (dispatch) => {
   }
 }
 
-//Defining initial State
+//Sets initial State
 const initialState = {
   title: '',
   deadline: '',

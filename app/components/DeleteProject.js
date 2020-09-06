@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 export const DeleteProject = (props) => {
   const { deleteProject, id } = props;
-
   return (
     <button onClick={() => deleteProject(id)} type="submit">
       X

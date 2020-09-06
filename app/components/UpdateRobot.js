@@ -5,7 +5,6 @@ import { updatingSingleRobot } from '../redux/singleRobot'
 export class UpdateRobot extends React.Component {
   constructor () {
     super()
-
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -14,7 +13,6 @@ export class UpdateRobot extends React.Component {
     const { id } = this.props.singleRobot
     const name = event.target.name.value
     const fuelLevel = event.target.fuelLevel.value
-    console.log('state---> ', this.props.singleRobot)
     this.props.updatedRobot(id, {name, fuelLevel})
   }
 
@@ -28,7 +26,7 @@ export class UpdateRobot extends React.Component {
         <p />
         <label htmlFor="fuelLevel">Fuel Level: </label>
         <input type="text" name="fuelLevel" />
-        <p></p>
+        <p />
         <button type="submit">Submit</button>
       </form>
       </React.Fragment>

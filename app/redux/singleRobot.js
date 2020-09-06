@@ -21,7 +21,6 @@ export const updateSingleRobot = (id, name, fuelLevel) => ({
 //Thunk Creators
 export const fetchSingleRobot = (robotId) => async (dispatch) => {
   try {
-    console.log('fetchingSingleRobot() ---> ', robotId)
     const { data: robot } = await axios.get(`/api/robots/${robotId}`);
     dispatch(setSingleRobot(robot));
   } catch (err) {
