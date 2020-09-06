@@ -1,16 +1,14 @@
-import React from "react";
+import React from 'react';
 import { connect } from 'react-redux';
 
 export const DeleteRobot = (props) => {
+  const { deleteRobot, id } = props;
 
-    console.log('DeleteRobot() this.props ', props)
-    const { deleteRobot, id } = props
+  return (
+    <button onClick={() => deleteRobot(id)} type="submit">
+      X
+    </button>
+  );
+};
 
-    return (
-      <button onClick={() => deleteRobot(id)} type="submit">
-              X
-            </button>
-    )
-  }
-
-export default connect(null, null)(DeleteRobot)
+export default connect(null, null)(DeleteRobot);

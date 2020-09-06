@@ -1,13 +1,14 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 
 export const DeleteProject = (props) => {
-console.log('DeleteProject() this.props--->', props)
-const { deleteProject, id } = props
+  const { deleteProject, id } = props;
 
   return (
-    <button onClick={() => deleteProject(id)} type="submit">X</button>
-  )
-}
+    <button onClick={() => deleteProject(id)} type="submit">
+      X
+    </button>
+  );
+};
 
-export default connect(null, null)(DeleteProject)
+export default connect(null, null)(DeleteProject);

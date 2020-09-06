@@ -11,18 +11,19 @@ module.exports = db.define('robots', {
   },
   fuelType: {
     type: Sequelize.ENUM('gas', 'diesel', 'electric'),
-    defaultValue: 'electric'
+    defaultValue: 'electric',
   },
   fuelLevel: {
     type: Sequelize.FLOAT,
     validate: {
       min: 0,
-      max: 100
+      max: 100,
     },
-    defaultValue: 100
+    defaultValue: 100,
   },
   imageUrl: {
     type: Sequelize.TEXT,
-    defaultValue: 'https://iconarchive.com/icons/ypf/transformers/256/transformer-icon.png'
-  }
+    defaultValue:
+      'https://iconarchive.com/icons/ypf/transformers/256/transformer-icon.png',
+  },
 });

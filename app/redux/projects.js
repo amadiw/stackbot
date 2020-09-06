@@ -26,7 +26,6 @@ export const fetchProjects = () =>
   async (dispatch) => {
   try {
     const { data: projects } = await axios.get('/api/projects')
-    // console.log('------------- ',projects)//returns array of test obs
     dispatch(setProjects(projects))
   } catch (err) {
     console.error(err)
@@ -59,14 +58,11 @@ export const removedProject = (projectId) =>
 //Sets up initialState
 const initialState = []
 
-// Take a look at app/redux/index.js to see where this reducer is
-// added to the Redux store with combineReducers
-
 //Projects Reducer
 export default function projectsReducer(state = initialState, action) {
   switch (action.type) {
     case SET_PROJECTS:
-      return action.projects
+      return [...action.projects]
     case GET_NEW_PROJECT:
       return [...state, action.project]
     case DELETE_PROJECT:

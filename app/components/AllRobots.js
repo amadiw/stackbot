@@ -13,11 +13,9 @@ import DeleteRobot from './DeleteRobot'
 export class AllRobots extends React.Component {
   componentDidMount() {
     this.props.getRobots();
-    console.log('4. componentDidmount()------->', this.props);
   }
 
   render() {
-    console.log('3. render() -> this.props-----> ', this.props);
     const { allRobots } = this.props;
 
     return (
@@ -39,14 +37,12 @@ export class AllRobots extends React.Component {
 }
 
 const mapState = (state) => {
-  console.log('1: mapState------->', state);
   return {
     allRobots: state.robots,
   };
 };
 
 const mapDispatch = (dispatch) => {
-  console.log('2: mapDispatch------->', dispatch);
   return {
     getRobots: () => dispatch(fetchRobots()),
     deleteRobot: (id) => dispatch(removedRobot(id))

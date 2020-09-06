@@ -1,9 +1,9 @@
-import React from "react";
-import { connect } from "react-redux";
-import { fetchProjects, removedProject } from "../redux/projects";
-import { Link } from "react-router-dom";
-import NewProjectForm from "./NewProjectForm";
-import DeleteProject from "./DeleteProject";
+import React from 'react';
+import { connect } from 'react-redux';
+import { fetchProjects, removedProject } from '../redux/projects';
+import { Link } from 'react-router-dom';
+import NewProjectForm from './NewProjectForm';
+import DeleteProject from './DeleteProject';
 
 // Notice that we're exporting the AllProjects component twice. The named export
 // (below) is not connected to Redux, while the default export (at the very
@@ -14,9 +14,7 @@ export class AllProjects extends React.Component {
   }
 
   render() {
-    // console.log('this.props---- ', this.props)
     const { allProjects } = this.props;
-
     return (
       <React.Fragment>
         <h1>Projects</h1>
@@ -39,7 +37,6 @@ export class AllProjects extends React.Component {
 }
 
 const mapState = (state) => {
-  // console.log('mapState----- ', state)
   return {
     allProjects: state.projects,
   };

@@ -15,7 +15,6 @@ router.get('/', async (req, res, next) => {
 
 //GET /api/robots/:robotId
 router.get('/:robotId', async (req, res, next) => {
-  // console.log('req------> ', req.params)
   try {
     const { robotId } = req.params;
     const robot = await Robot.findByPk(robotId, {
@@ -29,9 +28,8 @@ router.get('/:robotId', async (req, res, next) => {
   }
 });
 
-//POST /api/robots - adds a new robot
+//POST /api/robots
 router.post('/', async (req, res, next) => {
-  // console.log(req.body.name)
   try {
     // console.log('req.body-----> ',req.body)
     const newRobot = await Robot.create(req.body);
@@ -45,12 +43,11 @@ router.post('/', async (req, res, next) => {
 //DELETE /api/robots/:robotId
 router.delete('/:robotId', async (req, res, next) => {
   try {
-    console.log('robotId robot.js-----> ', req.params.robotId);
-    const robotToDelete = req.params.robotId;
+    const { robotId } = req.params;
 
     await Robot.destroy({
       where: {
-        id: robotToDelete,
+        id: robotId,
       },
     });
     res.status(204).end();
@@ -62,14 +59,13 @@ router.delete('/:robotId', async (req, res, next) => {
 //PUT /api/robots/:robotId
 router.put('/:robotId', async (req, res, next) => {
   try {
-    const { robotId } = req.params
-    // console.log(robotId)
-    const robot = await Robot.findByPk(robotId)
-    const updateRobot = await robot.update(req.body)
-    res.json(updateRobot)
+    const { robotId } = req.params;
+    const robot = await Robot.findByPk(robotId);
+    const updateRobot = await robot.update(req.body);
+    res.json(updateRobot);
   } catch (err) {
-    next(err)
+    next(err);
   }
-})
+});
 
 module.exports = router;

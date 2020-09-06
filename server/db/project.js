@@ -1,7 +1,7 @@
-const Sequelize = require("sequelize");
-const db = require("./database");
+const Sequelize = require('sequelize');
+const db = require('./database');
 
-module.exports = db.define("projects", {
+module.exports = db.define('projects', {
   title: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -16,14 +16,14 @@ module.exports = db.define("projects", {
     type: Sequelize.INTEGER,
     validate: {
       min: 1,
-      max: 10
-    }
+      max: 10,
+    },
   },
   completed: {
     type: Sequelize.BOOLEAN,
-    defaultValue: false
+    defaultValue: false,
   },
   description: {
-    type: Sequelize.TEXT
-  }
+    type: Sequelize.TEXT,
+  },
 });
