@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updatingSingleProject } from '../redux/singleProject'
+import { updatingSingleProject, markingCompleted } from '../redux/singleProject'
 
 export class UpdateProject extends React.Component {
   constructor () {
     super()
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleSubmit(event) {
@@ -14,6 +15,12 @@ export class UpdateProject extends React.Component {
     const title = event.target.title.value
     const completed = event.target.completed.value
     this.props.updatedProject(id, {title, completed})
+  }
+
+  handleClick() {
+    const { id } = this.props.singleProject
+    this.props.updatedComplete(id, {completed: true})
+
   }
 
   render () {
@@ -26,9 +33,11 @@ export class UpdateProject extends React.Component {
         <p />
         <label htmlFor="completed">Completed: </label>
         <input type="text" name="completed" />
-        <p></p>
-        <button type="submit">Submit</button>
+        <p />
+        <button type="submit">Click to Update</button>
       </form>
+      <p />
+      <button type="submit" onClick={this.handleClick}>Project Completed</button>
       </React.Fragment>
 
     )
@@ -44,7 +53,9 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    updatedProject: (id, title) => dispatch(updatingSingleProject(id, title))
+    updatedProject: (id, title) => dispatch(updatingSingleProject(id, title)),
+    updatedComplete: (id, completed) => dispatch(markingCompleted(id, completed))
+
   }
 }
 

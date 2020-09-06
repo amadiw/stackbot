@@ -11,6 +11,9 @@ const Routes = () => {
       <div>
         <nav>
           Welcome!
+          <Link className="linkColor" to="/">
+            Home
+          </Link>
           <Link className="linkColor" to="/robots">
             Robots
           </Link>
