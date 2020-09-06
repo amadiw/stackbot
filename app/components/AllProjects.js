@@ -23,9 +23,11 @@ export class AllProjects extends React.Component {
             <div key={project.id}>
               <Link to={`projects/${project.id}`}>
                 <p>
-                  {project.title}: {project.deadline}
+                  {project.title}
                 </p>
               </Link>
+                  Due: {project.deadline}
+                  <p />
               <DeleteProject id={project.id} deleteProject={this.props.deleteProject} />
             </div>
           ))}

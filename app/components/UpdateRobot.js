@@ -11,15 +11,14 @@ export class UpdateRobot extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
+    const { id } = this.props.singleRobot
     const name = event.target.name.value
     const fuelLevel = event.target.fuelLevel.value
-    const { id } = this.props.singleRobot
-    console.log('handleSubmit fuelLevel---> ', event.target.fuelLevel.value)
+    console.log('state---> ', this.props.singleRobot)
     this.props.updatedRobot(id, {name, fuelLevel})
   }
 
   render() {
-    console.log('render()', this.props)
     return (
       <React.Fragment>
       <h1>Update Robot</h1>

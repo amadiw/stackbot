@@ -2,6 +2,7 @@ import React from 'react';
 import { fetchSingleProject } from '../redux/singleProject';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import UpdateProject from './UpdateProject';
 
 export class SingleProject extends React.Component {
   componentDidMount() {
@@ -16,26 +17,33 @@ export class SingleProject extends React.Component {
       priority,
       description,
       robots,
+      completed
     } = this.props.singleProject;
 
     return (
+      <React.Fragment>
       <div>
         <h1>{title}</h1>
         <ul>
           <li>Deadline: {deadline}</li>
           <li>Priority: {priority}</li>
           <li>Description: {description}</li>
+          <li>Completed: {completed + ''}</li>
         </ul>
+        <UpdateProject />
         <h2>Robots</h2>
         <ul>
           {robots.map((robot) => (
-            <Link to={`/robots/${robot.id}`} key={robot.id}>
-              {' '}
-              {robot.name} {' '}
+            <div key={robot.id}>
+            <Link to={`/robots/${robot.id}`} >
+              {robot.name}
             </Link>
+              <br />
+            </div>
           ))}
         </ul>
       </div>
+      </React.Fragment>
     );
   }
 }

@@ -12,7 +12,6 @@ export class AllRobots extends React.Component {
 
   render() {
     const { allRobots } = this.props;
-    console.log(this.props)
     return (
       <React.Fragment>
         <h1>Robots</h1>

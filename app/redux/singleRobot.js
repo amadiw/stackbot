@@ -29,10 +29,10 @@ export const fetchSingleRobot = (robotId) => async (dispatch) => {
   }
 };
 
-export const updatingSingleRobot = (robotId, name, fuelLevel) => async (dispatch) => {
+export const updatingSingleRobot = (id, name, fuelLevel) => async (dispatch) => {
   try {
-    await axios.put(`/api/robots/${robotId}`, name, fuelLevel);
-    dispatch(updateSingleRobot(robotId, name, fuelLevel));
+    await axios.put(`/api/robots/${id}`, name, fuelLevel);
+    dispatch(updateSingleRobot(id, name, fuelLevel));
   } catch (err) {
     console.error(err);
   }
